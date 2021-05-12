@@ -5,13 +5,16 @@ function newElement() {
     exit.innerText="x"
     exit.onclick= () => exit.parentElement.remove();
     const li = document.createElement("li")
-    li.innerText=document.getElementById("task").value
+    const taskValue = document.getElementById("task").value
+    li.innerText= (taskValue === "" || taskValue === null ) ? null : taskValue
     const taskList = document.getElementById("list")
 
-    li.className = li.className+" list-group-item"
-    taskList.appendChild(li);
-    document.querySelectorAll("li").forEach(item => item.appendChild(exit));
-
+    if(taskValue !== "" && taskValue !== null){
+        li.className = li.className+" list-group-item"
+        taskList.appendChild(li);
+        document.querySelectorAll("li").forEach(item => item.appendChild(exit));
+    }
+    document.getElementById("task").value=""
 }
 function removeElement(exit) {
     console.log(exit)
