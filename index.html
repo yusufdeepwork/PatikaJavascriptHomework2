@@ -64,24 +64,29 @@
 </div>
 <div class="container">
     <div class="header">
-        <img
+        <span class="d-flex align-items-center justify-content-center"><img
                 src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
-                class="mb-1"
+                class="mb-auto"
                 alt=""
-        />
-        <h2>Yapılacaklar Listesi</h2>
-        <input type="text" id="task" placeholder="Bugün ne yapacaksın?" />
-        <span onclick="newElement()" id="liveToastBtn" class="button"
-        >Ekle</span
-        >
+        /></span>
+
+        <h2 class="d-flex align-items-center justify-content-center">Yapılacaklar Listesi</h2>
+        <div class="input-group mb-4 ml-3">
+            <input type="text" class="form-control" id="task" placeholder="Bugün ne yapacaksın?" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary"   onclick="newElement()" id="liveToastBtn" type="button">Ekle</button>
+            </div>
+        </div>
+
     </div>
 
-    <ul id="list">
-        <li>3 Litre Su İç</li>
-        <li>Ödevleri Yap</li>
-        <li>En Az 3 Saat Kodlama Yap</li>
-        <li>Yemek Yap</li>
-        <li>50 Sayfa Kitap Oku</li>
+    <ul id="list" >
+
+        <li class="list-group-item"><3 Litre Su İç> <span onclick="removeElement(this)" class="close">x</span></li>
+        <li  class="list-group-item">Ödevleri Yap<span onclick="removeElement(this)" class="close">x</span></li>
+        <li class="list-group-item">En Az 3 Saat Kodlama Yap<span onclick="removeElement(this)"  class="close">x</span></li>
+        <li class="list-group-item">Yemek Yap<span onclick="removeElement(this)" class="close">x</span></li>
+        <li class="list-group-item">50 Sayfa Kitap Oku<span onclick="removeElement(this)" class="close">x</span></li>
     </ul>
     <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
