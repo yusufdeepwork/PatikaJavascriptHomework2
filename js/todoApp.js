@@ -1,5 +1,7 @@
 
 function newElement() {
+
+    document.querySelector("#liveToast").className="toast show"
     const exit = document.createElement("span");
     exit.className = "close"
     exit.innerText="x"
@@ -15,6 +17,10 @@ function newElement() {
         document.querySelectorAll("li").forEach(item => item.appendChild(exit));
     }
     document.getElementById("task").value=""
+    setTimeout(()=> document.querySelector(
+        "#liveToast").className="toast",3000)
+
+
 }
 function removeElement(exit) {
     console.log(exit)
