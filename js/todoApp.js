@@ -4,7 +4,7 @@ function newElement() {
     const exit = document.createElement("span");
     exit.className = "close"
     exit.innerText="x"
-
+    exit.style.cursor="pointer"
     const li = document.createElement("li")
     const taskValue = document.getElementById("task").value
     // li.innerText= (taskValue === "" || taskValue === null ) ? null : taskValue
@@ -26,7 +26,7 @@ function newElement() {
         // document.querySelectorAll("li").forEach(item => item.appendChild(exit));
     }
     document.getElementById("task").value=""
-
+    onLoadAtStart(taskList)
 }
 function removeElement(exit) {
     console.log(exit)
@@ -37,6 +37,7 @@ function haveDone(element) {
     succesIcon.innerText="\u2714";
     element.firstChild.innerText.includes("\u2714") ? null : (element.insertBefore(succesIcon,element.firstChild))
     element.childNodes[1].style="text-decoration:line-through"
+    element.style.cursor="default"
+    element.lastChild.style.cursor="pointer"
     element.lastChild.onclick= () => element.lastChild.parentElement.remove()
-console.log(element)
 }
