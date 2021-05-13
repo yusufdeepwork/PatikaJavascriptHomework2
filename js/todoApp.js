@@ -7,7 +7,10 @@ function newElement() {
 
     const li = document.createElement("li")
     const taskValue = document.getElementById("task").value
-    li.innerText= (taskValue === "" || taskValue === null ) ? null : taskValue
+    // li.innerText= (taskValue === "" || taskValue === null ) ? null : taskValue
+    const valueTag = document.createElement("span");
+    valueTag.innerText =  (taskValue === "" || taskValue === null ) ? null : taskValue
+    li.append(valueTag)
     const taskList = document.getElementById("list")
     li.className = li.className+" list-group-item"
     li.appendChild(exit)
@@ -17,13 +20,11 @@ function newElement() {
 
     if(taskValue !== "" && taskValue !== null){
         document.querySelector("#liveToast").className="toast show"
-
         setTimeout(()=> document.querySelector(
             "#liveToast").className="toast",3000)
         taskList.appendChild(li);
         // document.querySelectorAll("li").forEach(item => item.appendChild(exit));
     }
-
     document.getElementById("task").value=""
 
 }
@@ -32,9 +33,10 @@ function removeElement(exit) {
       exit.parentElement.remove()
 }
 function haveDone(element) {
-    element.innerHTML.includes("\u2714") ? null :(element.innerHTML = ("\u2714" + element.innerHTML))
-    console.log(element.innerHTML.style)
-    element.style="text-decoration:line-through"
+   const succesIcon = document.createElement("span")
+    succesIcon.innerText="\u2714";
+    element.firstChild.innerText.includes("\u2714") ? null : (element.insertBefore(succesIcon,element.firstChild))
+    element.childNodes[1].style="text-decoration:line-through"
     element.lastChild.onclick= () => element.lastChild.parentElement.remove()
-
+console.log(element)
 }
