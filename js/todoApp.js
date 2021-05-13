@@ -22,7 +22,12 @@ function newElement() {
             "#liveToast").className="toast",3000)
         taskList.appendChild(li);
         // document.querySelectorAll("li").forEach(item => item.appendChild(exit));
+    }else{
+        const warning = document.querySelector("#liveToastNull");
+        warning.className="toast error show"
+        setTimeout(()=> warning.className="toast error hide",2000)
     }
+
     document.getElementById("task").value=""
 
 }
