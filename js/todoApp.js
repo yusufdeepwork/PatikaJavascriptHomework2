@@ -1,7 +1,6 @@
 
 function newElement() {
 
-    document.querySelector("#liveToast").className="toast show"
     const exit = document.createElement("span");
     exit.className = "close"
     exit.innerText="x"
@@ -17,13 +16,16 @@ function newElement() {
     exit.onclick= () => exit.parentElement.remove();
 
     if(taskValue !== "" && taskValue !== null){
+        document.querySelector("#liveToast").className="toast show"
+
+        setTimeout(()=> document.querySelector(
+            "#liveToast").className="toast",3000)
         taskList.appendChild(li);
         // document.querySelectorAll("li").forEach(item => item.appendChild(exit));
     }
 
     document.getElementById("task").value=""
-    setTimeout(()=> document.querySelector(
-        "#liveToast").className="toast",3000)
+
 }
 function removeElement(exit) {
     console.log(exit)
