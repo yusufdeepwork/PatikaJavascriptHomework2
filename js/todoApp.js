@@ -1,13 +1,11 @@
 
 function newElement() {
-
     const exit = document.createElement("span");
     exit.className = "close"
     exit.innerText="x"
     exit.style.cursor="pointer"
     const li = document.createElement("li")
     const taskValue = document.getElementById("task").value
-    // li.innerText= (taskValue === "" || taskValue === null ) ? null : taskValue
     const valueTag = document.createElement("span");
     valueTag.innerText =  (taskValue === "" || taskValue === null ) ? null : taskValue
     li.append(valueTag)
@@ -26,7 +24,7 @@ function newElement() {
         // document.querySelectorAll("li").forEach(item => item.appendChild(exit));
     }
     document.getElementById("task").value=""
-    onLoadAtStart(taskList)
+
 }
 function removeElement(exit) {
     console.log(exit)
